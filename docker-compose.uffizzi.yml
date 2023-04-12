@@ -9,6 +9,7 @@ services:
   localstack:
     build: 
       context: .
+      dockerfile: Dockerfile
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
