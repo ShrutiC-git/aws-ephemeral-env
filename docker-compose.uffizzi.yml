@@ -7,13 +7,14 @@ x-uffizzi:
 
 services:
   localstack:
-    image: localstack/localstack
+    build: 
+      context: .
     ports:
       - "4566:4566"            # LocalStack Gateway
-      - "510-4559:4510-4559"  # external services port range
     environment:
       - SERVICES=lambda,iam,s3
       - DEBUG=1
+      - LAMBDA_EXECUTOR=docker
       - AWS_DEFAULT_REGION=us-east-1
       - AWS_ACCESS_KEY_ID=testUser
       - AWS_SECRET_ACCESS_KEY=testAccessKey
