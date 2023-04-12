@@ -20,6 +20,9 @@ services:
       - DOCKER_HOST=unix:///var/run/docker.sock
       - DATA_DIR=/tmp/localstack/data
     volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - localstack_data:/var/lib/localstack"
       # - "/var/run/docker.sock:/var/run/docker.sock"
       - ./create-resources.sh:/docker-entrypoint-initaws.d/create-resources.sh
+    
+volumes:
+  localstack_data:
