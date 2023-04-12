@@ -1,0 +1,23 @@
+version: "3.8"
+
+x-uffizzi:
+  ingress:
+    service: localstack
+    port: 4566
+
+services:
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"            # LocalStack Gateway
+      - "510-4559:4510-4559"  # external services port range
+    environment:
+      - SERVICES=lambda
+      - DEBUG=1
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ACCESS_KEY_ID=testUser
+      - AWS_SECRET_ACCESS_KEY=testAccessKey
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./create-resources.sh:/docker-entrypoint-initaws.d/create-resources.sh
