@@ -4,7 +4,6 @@ on:
     types: [opened, synchronize, reopened, closed, review_requested]
 
 jobs:
-
   build-localstack:
     name: Build and push `Localstack`
     runs-on: ubuntu-latest
