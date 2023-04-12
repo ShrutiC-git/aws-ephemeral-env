@@ -5,6 +5,7 @@ x-uffizzi:
     service: localstack
     port: 4566
 
+
 services:
   localstack:
     build: 
