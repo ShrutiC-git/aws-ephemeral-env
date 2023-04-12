@@ -1,1 +1,1 @@
-echo "All resources initialized! 🚀"
+echo "Lambdas initialized! 🚀"
