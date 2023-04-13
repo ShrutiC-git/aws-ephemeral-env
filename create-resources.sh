@@ -42,7 +42,7 @@ aws \
   --runtime nodejs10.x \
   --description "SQS Lambda handler for test sqs." \
   --timeout 60 \
-  --memory-size 128 \
+  --memory-size 128 
 echo "Map the testQueue to the lambda function"
 aws \
   lambda create-event-source-mapping \
@@ -50,3 +50,7 @@ aws \
   --batch-size 1 \
   --event-source-arn "arn:aws:sqs:us-east-1:000000000000:testQueue" \
   --endpoint-url=http://localhost:4566
+
+echo "Invike Lambda"
+aws \
+  lambda invoke -function-name exampleLambda --cli-binary-format raw-in-base64-out --payload '{ "key": "value" }' response.json
