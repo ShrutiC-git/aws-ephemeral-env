@@ -26,35 +26,35 @@ aws \
  --role-name admin-role \
  --path / \
  --assume-role-policy-document file:./admin-policy.json
-echo "Make S3 bucket"
-aws \
-  s3 mb s3://lambda-functions \
-  --endpoint-url http://localhost:4566 
-echo "Copy the lambda function to the S3 bucket"
-aws \
-  s3 cp lambdas.zip s3://lambda-functions \
-  --endpoint-url http://localhost:4566 
+# echo "Make S3 bucket"
+# aws \
+#   s3 mb s3://lambda-functions \
+#   --endpoint-url http://localhost:4566 
+# echo "Copy the lambda function to the S3 bucket"
+# aws \
+#   s3 cp lambdas.zip s3://lambda-functions \
+#   --endpoint-url http://localhost:4566 
 
-echo "Create the lambda exampleLambda"
-aws \
-  lambda create-function \
-  --endpoint-url=http://localhost:4566 \
-  --function-name exampleLambda \
-  --role arn:aws:iam::000000000000:role/admin-role \
-  --code S3Bucket=lambda-functions,S3Key=lambdas.zip
-  --handler index.handler \
-  --runtime nodejs10.x \
-  --description "SQS Lambda handler for test sqs." \
-  --timeout 60 \
-  --memory-size 128 
-echo "Map the testQueue to the lambda function"
-aws \
-  lambda create-event-source-mapping \
-  --function-name exampleLambda \
-  --batch-size 1 \
-  --event-source-arn "arn:aws:sqs:us-east-1:000000000000:testQueue" \
-  --endpoint-url=http://localhost:4566
+# echo "Create the lambda exampleLambda"
+# aws \
+#   lambda create-function \
+#   --endpoint-url=http://localhost:4566 \
+#   --function-name exampleLambda \
+#   --role arn:aws:iam::000000000000:role/admin-role \
+#   --code S3Bucket=lambda-functions,S3Key=lambdas.zip
+#   --handler index.handler \
+#   --runtime nodejs10.x \
+#   --description "SQS Lambda handler for test sqs." \
+#   --timeout 60 \
+#   --memory-size 128 
+# echo "Map the testQueue to the lambda function"
+# aws \
+#   lambda create-event-source-mapping \
+#   --function-name exampleLambda \
+#   --batch-size 1 \
+#   --event-source-arn "arn:aws:sqs:us-east-1:000000000000:testQueue" \
+#   --endpoint-url=http://localhost:4566
 
-echo "Invike Lambda"
-aws \
-  lambda invoke -function-name exampleLambda --cli-binary-format raw-in-base64-out --payload '{ "key": "value" }' response.json
+# echo "Invike Lambda"
+# aws \
+#   lambda invoke -function-name exampleLambda --cli-binary-format raw-in-base64-out --payload '{ "key": "value" }' response.json
