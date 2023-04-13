@@ -50,4 +50,3 @@ aws \
   --batch-size 1 \
   --event-source-arn "arn:aws:sqs:us-east-1:000000000000:testQueue" \
   --endpoint-url=http://localhost:4566
-echo "All resources initialized! 🚀"
