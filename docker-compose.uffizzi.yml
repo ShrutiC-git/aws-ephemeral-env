@@ -19,7 +19,7 @@ services:
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
-      - SERVICES=lambda,iam,s3
+      - SERVICES=lambda,iam,s3,sqs,sns
       - DEBUG=1
       - DISABLE_CORS_CHECKS=1
       # - DOCKER_HOST=unix:///var/run/docker.sock
@@ -33,7 +33,7 @@ services:
     volumes:
       # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
-      - ./create-resources.sh:/docker-entrypoint-initaws.d/create-resources.sh
+      - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
     
 volumes:
   localstack_data:
