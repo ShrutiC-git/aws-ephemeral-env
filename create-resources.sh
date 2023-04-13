@@ -1,35 +1,35 @@
 
-echo "All resources initialized! 🚀"
+# echo "All resources initialized! 🚀"
 
 
-echo "Create SQS queue testQueue"
-aws \
-  sqs create-queue \
-  --queue-name testQueue \
-  --endpoint-url http://localhost:4566 
-echo "Create SNS Topic testTopic"
-aws \
-  sns create-topic \
-  --name testTopic \
-  --endpoint-url http://localhost:4566 
-echo "Subscribe testQueue to testTopic"
-aws \
-  sns subscribe \
-  --endpoint-url http://localhost:4566 \
-  --topic-arn arn:aws:sns:us-east-1:000000000000:testTopic \
-  --protocol sqs \
-  --notification-endpoint arn:aws:sqs:us-east-1:000000000000:testQueue
-echo "Create admin"
-aws \
- --endpoint-url=http://localhost:4566 \
- iam create-role \
- --role-name admin-role \
- --path / \
- --assume-role-policy-document file:./admin-policy.json
+# echo "Create SQS queue testQueue"
+# aws \
+#   sqs create-queue \
+#   --queue-name testQueue \
+#   --endpoint-url http://localhost:4566 
+# echo "Create SNS Topic testTopic"
+# aws \
+#   sns create-topic \
+#   --name testTopic \
+#   --endpoint-url http://localhost:4566 
+# echo "Subscribe testQueue to testTopic"
+# aws \
+#   sns subscribe \
+#   --endpoint-url http://localhost:4566 \
+#   --topic-arn arn:aws:sns:us-east-1:000000000000:testTopic \
+#   --protocol sqs \
+#   --notification-endpoint arn:aws:sqs:us-east-1:000000000000:testQueue
+# echo "Create admin"
+# aws \
+#  --endpoint-url=http://localhost:4566 \
+#  iam create-role \
+#  --role-name admin-role \
+#  --path / \
+#  --assume-role-policy-document file:./admin-policy.json
 echo "Make S3 bucket"
-aws \
-  s3 mb s3://lambda-functions \
-  --endpoint-url http://localhost:4566 
+awslocal s3api create-bucket --bucket business-time-nonprod --region eu-west-1 
+
+
 echo "Copy the lambda function to the S3 bucket"
 aws \
   s3 cp lambdas.zip s3://lambda-functions \
