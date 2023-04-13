@@ -2,8 +2,8 @@ version: "3.8"
 
 x-uffizzi:
   ingress:
-    service: nginx
-    port: 8081
+    service: localstack
+    port: 4566
 
 services:
  

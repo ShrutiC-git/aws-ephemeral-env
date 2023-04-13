@@ -10,6 +10,6 @@ RUN apt-get install zip
 # Enter the src directory, install dependencies, and zip the src directory in the container
 RUN cd src && npm install && zip -r lambdas.zip .
 
-FROM localstack/localstack:latest
+FROM localstack/localstack
 # Copy lambdas.zip into the localstack directory
 COPY --from=lambda /usr/src/src/lambdas.zip ./lambdas.zip
