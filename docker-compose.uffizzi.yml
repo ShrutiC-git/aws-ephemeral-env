@@ -2,10 +2,16 @@ version: "3.8"
 
 x-uffizzi:
   ingress:
-    service: localstack
-    port: 4566
+    service: nginx
+    port: 8081
 
 services:
+ 
+ nginx:
+    image: nginx:alpine
+    volumes:
+      - ./nginx-uffizzi:/etc/nginx
+  
   localstack:
     build: 
       context: .
