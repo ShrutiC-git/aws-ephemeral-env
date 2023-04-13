@@ -8,5 +8,5 @@ exports.handler =  async function(event, context) {
     // Print the event that triggers the lambda
     console.log("EVENT: \n" + JSON.stringify(event, null, 2));
     console.log('+*+++*+*+*+*+*END+*+*+*+*+**+*++*+*');
-    return context.logStreamName
+    return "Hello";
 }
