@@ -19,7 +19,7 @@ services:
     environment:
       # - SERVICES=lambda,iam,s3,sqs,sns
       # - DEBUG=1
-      # - DISABLE_CORS_CHECKS=1
+      - DISABLE_CORS_CHECKS=1
       # - DOCKER_HOST=unix:///var/run/docker.sock
       # - DATA_DIR=/tmp/localstack/data
       - AWS_DEFAULT_REGION=us-east-1
