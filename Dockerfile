@@ -13,6 +13,6 @@ RUN cd src && npm install && zip -r lambdas.zip .
 
 FROM localstack/localstack:1.4
 # Copy lambdas.zip into the localstack directory
-RUN chmod +x ./init-scripts
-COPY ./init-scripts/init-aws.sh /etc/localstack/init/ready.d/init-aws.sh
+RUN chmod +x /usr/src/init-scripts
+COPY /usr/src/init-scripts/init-aws.sh /etc/localstack/init/ready.d/init-aws.sh
 COPY --from=lambda /usr/src/src/lambdas.zip ./lambdas.zip
