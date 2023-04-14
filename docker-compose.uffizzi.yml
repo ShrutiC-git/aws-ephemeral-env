@@ -32,7 +32,7 @@ services:
     command: 
       - "-c"
       - "
-          chmod +x ./etc/localstack/init/ready.d/init-scripts
+          chmod +x /etc/localstack/init/ready.d/init-scripts
         "  
     volumes:
       # - localstack_data:/var/lib/localstack
