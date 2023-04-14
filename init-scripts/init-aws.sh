@@ -1,5 +1,7 @@
 #!/bin/bash
-
+echo "All resources initialized! :rocket:"
+echo "Make S3 bucket"
+awslocal s3api create-bucket --bucket business-time-nonprod
 
 # echo "Create SQS queue testQueue"
 # aws \
