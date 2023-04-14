@@ -1,5 +1,5 @@
 
-# echo "All resources initialized! 🚀"
+echo "All resources initialized! 🚀"
 
 
 # echo "Create SQS queue testQueue"
@@ -26,14 +26,14 @@
 #  --role-name admin-role \
 #  --path / \
 #  --assume-role-policy-document file:./admin-policy.json
-echo "Make S3 bucket"
-awslocal s3api create-bucket --bucket business-time-nonprod --region eu-west-1 
+# echo "Make S3 bucket"
+# awslocal s3api create-bucket --bucket business-time-nonprod --region eu-west-1 
 
 
-echo "Copy the lambda function to the S3 bucket"
-aws \
-  s3 cp lambdas.zip s3://lambda-functions \
-  --endpoint-url http://localhost:4566 
+# echo "Copy the lambda function to the S3 bucket"
+# aws \
+#   s3 cp lambdas.zip s3://lambda-functions \
+#   --endpoint-url http://localhost:4566 
 
 # echo "Create the lambda exampleLambda"
 # aws \
