@@ -26,8 +26,8 @@ echo "All resources initialized! 🚀"
 #  --role-name admin-role \
 #  --path / \
 #  --assume-role-policy-document file:./admin-policy.json
-echo "Make S3 bucket"
-awslocal s3api create-bucket --bucket business-time-nonprod
+# echo "Make S3 bucket"
+# awslocal s3api create-bucket --bucket business-time-nonprod
 
 
 # echo "Copy the lambda function to the S3 bucket"
