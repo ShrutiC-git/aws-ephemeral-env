@@ -6,18 +6,13 @@ x-uffizzi:
     port: 4566
 
 services:
- 
-  nginx:
-    image: nginx:alpine
-    volumes:
-      - ./nginx-uffizzi:/etc/nginx
   
   localstack:
     image: localstack/localstack
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
-      # - SERVICES=lambda,iam,s3,sqs,sns
+      - SERVICES=lambda,iam,s3,sqs,sns
       # - DEBUG=1
       - DISABLE_CORS_CHECKS=1
       # - DOCKER_HOST=unix:///var/run/docker.sock
