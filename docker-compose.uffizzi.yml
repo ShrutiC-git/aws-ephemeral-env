@@ -28,11 +28,11 @@ services:
       # - HOSTNAME_EXTERNAL=localstack
       # - PROVIDER_OVERRIDE_LAMBDA=legacy
       # - LAMBDA_EXECUTOR=local
-    # volumes:
+    volumes:
       # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
       # - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
-      # - ./init-scripts:/etc/localstack/init/ready.d/
+      - ./init-scripts:/etc/localstack/init/ready.d/
 
 
 # volumes:
