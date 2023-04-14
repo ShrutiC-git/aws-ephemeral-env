@@ -34,6 +34,6 @@ services:
       # - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
       - ./init-scripts:/docker-entrypoint-initaws.d
     
-volumes:
-  localstack_data:
-  docker_volume:
+# volumes:
+#   localstack_data:
+#   docker_volume:
