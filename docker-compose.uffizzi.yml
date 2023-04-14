@@ -2,35 +2,38 @@ version: "3.8"
 
 x-uffizzi:
   ingress:
-    service: nginx
-    port: 8081
+    service: localstack
+    port: 4566
 
 services:
  
- nginx:
+  nginx:
     image: nginx:alpine
     volumes:
       - ./nginx-uffizzi:/etc/nginx
   
   localstack:
-    image: "${LOCALSTACK_IMAGE}"
+    image: localstack/localstack
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
-      - SERVICES=lambda,iam,s3
-      - DEBUG=1
-      - DISABLE_CORS_CHECKS=1
-      - DOCKER_HOST=unix:///var/run/docker.sock
-      - DATA_DIR=/tmp/localstack/data
+      # - SERVICES=lambda,iam,s3,sqs,sns
+      # - DEBUG=1
+      # - DISABLE_CORS_CHECKS=1
+      # - DOCKER_HOST=unix:///var/run/docker.sock
+      # - DATA_DIR=/tmp/localstack/data
       - AWS_DEFAULT_REGION=us-east-1
-      - AWS_ACCESS_KEY_ID=testUser
-      - AWS_SECRET_ACCESS_KEY=testAccessKey
-      - DOCKER_HOST=unix:///var/run/docker.sock
-      - DATA_DIR=/tmp/localstack/data
+      # - AWS_ACCESS_KEY_ID=testUser
+      # - AWS_SECRET_ACCESS_KEY=testAccessKey
+      # - HOSTNAME_EXTERNAL=localstack
+      # - PROVIDER_OVERRIDE_LAMBDA=legacy
+      # - LAMBDA_EXECUTOR=local
     volumes:
-      - localstack_data:/var/lib/localstack"
+      # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
-      - ./create-resources.sh:/docker-entrypoint-initaws.d/create-resources.sh
+      # - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
+      - ./init-scripts:/docker-entrypoint-initaws.d
     
 volumes:
   localstack_data:
+  docker_volume:
