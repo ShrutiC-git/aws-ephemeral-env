@@ -32,8 +32,9 @@ services:
       # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
       # - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
-      - ./init-scripts:/docker-entrypoint-initaws.d
+      - ./init-scripts:/etc/localstack/init/ready.d/
+    command:  ["/bin/sh", "-c", "chmod +x ./init-scripts"]
     
-volumes:
-  localstack_data:
-  docker_volume:
+# volumes:
+#   localstack_data:
+#   docker_volume:
