@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "All resources initialized! 🚀"
+awslocal s3 mb s3://my-bucket
 
 
 # echo "Create SQS queue testQueue"
