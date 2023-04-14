@@ -19,7 +19,7 @@ services:
     environment:
       # - SERVICES=lambda,iam,s3,sqs,sns
       # - DEBUG=1
-      # - DISABLE_CORS_CHECKS=1
+      - DISABLE_CORS_CHECKS=1
       # - DOCKER_HOST=unix:///var/run/docker.sock
       # - DATA_DIR=/tmp/localstack/data
       - AWS_DEFAULT_REGION=us-east-1
@@ -32,9 +32,10 @@ services:
       # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
       # - './create-resources.sh:/etc/localstack/init/ready.d/init-aws.sh'
-      - ./init-scripts:/etc/localstack/init/ready.d/
-    command:  ["/bin/sh", "-c", "chmod +x ./init-scripts"]
-    
+      - "./init-scripts:/etc/localstack/init/ready.d/"
+
+
+
 # volumes:
 #   localstack_data:
 #   docker_volume:
