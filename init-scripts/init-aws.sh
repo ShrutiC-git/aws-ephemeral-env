@@ -16,6 +16,11 @@ aws lambda invoke --endpoint http://localhost:4566 --function-name test \
                        --payload '{"hello":"shruti"}' \
                        response.json
 
+echo "creating function url"
+awslocal lambda create-function-url-config \
+    --function-name test \
+    --auth-type NONE                       
+
 # echo "Create SQS queue testQueue"
 # aws \
 #   sqs create-queue \
