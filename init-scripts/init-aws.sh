@@ -11,6 +11,11 @@ awslocal lambda create-function \
     --handler index.handler \
     --role arn:aws:iam::000000000000:role/lambda-role
 
+echo "Invoking Lambda"
+aws lambda invoke --endpoint http://localhost:4566 --function-name test \
+                       --payload '{"hello":"shruti"}' \
+                       /tmp/output.txt
+
 # echo "Create SQS queue testQueue"
 # aws \
 #   sqs create-queue \

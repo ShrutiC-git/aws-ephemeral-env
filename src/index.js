@@ -12,6 +12,6 @@
 // }
 
 exports.handler = async (event = {}, ctx = {}) => {
-    // console.log({ event })
+    console.log({ event })
     return "Hello"
    }
