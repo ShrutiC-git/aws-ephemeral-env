@@ -21,8 +21,8 @@ services:
       # - AWS_ACCESS_KEY_ID=testUser
       # - AWS_SECRET_ACCESS_KEY=testAccessKey
       # - HOSTNAME_EXTERNAL=localstack
-      # - PROVIDER_OVERRIDE_LAMBDA=legacy
-      # - LAMBDA_EXECUTOR=local
+      - PROVIDER_OVERRIDE_LAMBDA=legacy
+      - LAMBDA_EXECUTOR=local
     volumes:
       # - localstack_data:/var/lib/localstack
       # - "/var/run/docker.sock:/var/run/docker.sock"
