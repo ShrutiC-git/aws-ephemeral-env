@@ -13,5 +13,7 @@
 
 exports.handler = async (event = {}, ctx = {}) => {
     console.log({ event })
-    return "Hello"
+    return {
+        "text":"this is a test"
+    }
    }

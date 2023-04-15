@@ -14,7 +14,7 @@ awslocal lambda create-function \
 echo "Invoking Lambda"
 aws lambda invoke --endpoint http://localhost:4566 --function-name test \
                        --payload '{"hello":"shruti"}' \
-                       /tmp/output.txt
+                       response.json
 
 # echo "Create SQS queue testQueue"
 # aws \
