@@ -13,13 +13,17 @@ awslocal lambda create-function \
 
 echo "Invoking Lambda"
 aws lambda invoke --endpoint http://localhost:4566 --function-name test \
-                       --payload '{"hello":"shruti"}' \
+                       --payload '{"name":"shruti"}' \
                        response.json
 
-echo "creating function url"
-awslocal lambda create-function-url-config \
-    --function-name test \
-    --auth-type NONE                       
+# echo "Invike Lambda"
+# aws \
+#   lambda invoke -function-name exampleLambda --cli-binary-format raw-in-base64-out --payload '{ "key": "value" }' response.json
+
+# echo "creating function url"
+# awslocal lambda create-function-url-config \
+#     --function-name test \
+#     --auth-type NONE                       
 
 # echo "Create SQS queue testQueue"
 # aws \

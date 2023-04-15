@@ -13,14 +13,14 @@ services:
       - "4566:4566"            # LocalStack Gateway
     environment:
       - SERVICES=lambda,iam,s3,sqs,sns
-      # - DEBUG=1
+      - DEBUG=1
       - DISABLE_CORS_CHECKS=1
       # - DOCKER_HOST=unix:///var/run/docker.sock
       # - DATA_DIR=/tmp/localstack/data
       - AWS_DEFAULT_REGION=us-east-1
-      # - AWS_ACCESS_KEY_ID=testUser
-      # - AWS_SECRET_ACCESS_KEY=testAccessKey
-      # - HOSTNAME_EXTERNAL=localstack
+      - AWS_ACCESS_KEY_ID=testUser
+      - AWS_SECRET_ACCESS_KEY=testAccessKey
+      - HOSTNAME_EXTERNAL=localstack
       - PROVIDER_OVERRIDE_LAMBDA=legacy
       - LAMBDA_EXECUTOR=local
     volumes:

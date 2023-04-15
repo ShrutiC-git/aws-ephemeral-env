@@ -11,9 +11,10 @@
 //     return "Hello";
 // }
 
-exports.handler = async (event = {}, ctx = {}) => {
-    console.log({ event })
-    return {
-        "text":"this is a test"
-    }
-   }
+exports.handler = async (event) => {
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify(`Hello ${event.name}!`),
+    };
+    return response;
+};
