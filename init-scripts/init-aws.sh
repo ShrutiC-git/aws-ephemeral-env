@@ -1,7 +1,14 @@
 #!/bin/bash
-echo "All resources initialized! :rocket:"
+echo "All resources initialized! 🚀🚀 "
 echo "Make S3 bucket"
 awslocal s3api create-bucket --bucket business-time-nonprod
+
+# awslocal lambda create-function \
+#     --function-name test \
+#     --runtime nodejs16.x \
+#     --zip-file fileb://lambdas.zip \
+#     --handler index.handler \
+#     --role arn:aws:iam::000000000000:role/lambda-role
 
 # echo "Create SQS queue testQueue"
 # aws \

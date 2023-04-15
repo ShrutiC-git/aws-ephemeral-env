@@ -8,7 +8,7 @@ x-uffizzi:
 services:
   
   localstack:
-    image: localstack/localstack
+    image: "${LOCALSTACK_IMAGE}"
     ports:
       - "4566:4566"            # LocalStack Gateway
     environment:
