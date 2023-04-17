@@ -34,7 +34,7 @@ awslocal apigateway put-method \
     --region ${REGION} \
     --rest-api-id ${API_ID} \
     --resource-id ${RESOURCE_ID} \
-    --http-method GET \
+    --http-method POST \
     --request-parameters "method.request.path.somethingId=true" \
     --authorization-type "NONE" \
 
