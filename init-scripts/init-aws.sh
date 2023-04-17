@@ -14,7 +14,6 @@ awslocal lambda create-function \
     --function-name ${API_NAME} \
     --runtime nodejs16.x \
     --handler index.handler \
-    --memory-size 128 \
     --zip-file fileb://lambdas.zip \
     --role arn:aws:iam::123456:role/irrelevant
 
