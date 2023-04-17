@@ -16,12 +16,19 @@ exports.handler = async (event) => {
     const response = {}
     if (event.body !== null && event.body !== undefined) {
         let body = JSON.parse(event.body)
-        if (body.name) 
+        if (body.name) {
             res = body.name;
             response = {
                 statusCode: 200,
                 body: JSON.stringify(`Hello ${body.name}!`),
             };
+        }
+        else {
+            response = {
+                statusCode: 200,
+                body: JSON.stringify(`Hello, anonymous!`),
+            };
+        }
     }
     return response;
 };
