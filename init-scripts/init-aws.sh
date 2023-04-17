@@ -4,7 +4,7 @@ API_NAME=api
 REGION=us-east-1
 STAGE=test
 
-function fail() {
+fail() {
     echo $2
     exit $1
 }
