@@ -13,7 +13,7 @@
 
 exports.handler = async (event) => {
 
-    const response = {}
+    let response = {}
     if (event.body !== null && event.body !== undefined) {
         let body = JSON.parse(event.body)
         if (body.name) {
