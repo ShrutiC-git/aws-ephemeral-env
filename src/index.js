@@ -23,12 +23,12 @@ exports.handler = async (event) => {
                 body: JSON.stringify(`Hello ${body.name}!`),
             };
         }
-        else {
-            response = {
-                statusCode: 200,
-                body: JSON.stringify(`Hello, anonymous!`),
-            };
-        }
+    }
+    else {
+        response = {
+            statusCode: 200,
+            body: JSON.stringify(`Hello, anonymous!`),
+        };
     }
     return response;
 };
