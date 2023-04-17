@@ -12,7 +12,7 @@ fail() {
 awslocal lambda create-function \
     --region ${REGION} \
     --function-name ${API_NAME} \
-    --runtime nodejs8.10 \
+    --runtime nodejs16.x \
     --handler index.handler \
     --memory-size 128 \
     --zip-file fileb://lambdas.zip \
