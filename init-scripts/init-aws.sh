@@ -15,7 +15,7 @@ awslocal lambda create-function \
     --runtime nodejs8.10 \
     --handler lambda.apiHandler \
     --memory-size 128 \
-    --zip-file fileb://api-handler.zip \
+    --zip-file fileb://lambdas.zip \
     --role arn:aws:iam::123456:role/irrelevant
 
 [ $? == 0 ] || fail 1 "Failed: AWS / lambda / create-function"
