@@ -53,4 +53,4 @@ awslocal apigateway put-integration \
 awslocal apigateway create-deployment \
     --region ${REGION} \
     --rest-api-id ${API_ID} \
-    --stage-name ${STAGE} \
+    --stage-name ${STAGE}
