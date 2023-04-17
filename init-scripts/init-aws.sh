@@ -10,12 +10,11 @@ fail() {
 }
 
 awslocal lambda create-function \
-    --region ${REGION} \
     --function-name ${API_NAME} \
     --runtime nodejs16.x \
     --handler index.handler \
     --zip-file fileb://lambdas.zip \
-    --role arn:aws:iam::123456:role/irrelevant
+    --role arn:aws:iam::000000000000:role/lambda-role
 
 [ $? == 0 ] || fail 1 "Failed: AWS / lambda / create-function"
 
